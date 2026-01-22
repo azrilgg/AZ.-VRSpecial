@@ -15,72 +15,72 @@ const FavoriteMusic = () => {
             title: '8 Letters',
             artist: 'Why Dont we',
             album: 'After Hours',
-            cover: 'src/assets/image/8letterss.jpg',
-            audio: 'src/assets/music/8letters.mp3'
+            cover: 'image/8letterss.jpg',
+            audio: 'music/8letters.mp3'
         },
         {
             id: 2,
             title: 'Waiting For Love',
             artist: 'Avicii',
             album: 'Future Nostalgia',
-            cover: 'src/assets/image/avici.jpg',
-            audio: 'src/assets/music/Avicii - Waiting For Love - AviciiOfficialVEVO.mp3'
+            cover: 'image/avici.jpg',
+            audio: 'music/Avicii - Waiting For Love - AviciiOfficialVEVO.mp3'
         },
         {
             id: 3,
             title: 'Consume',
             artist: 'Chase Atlantic',
             album: 'F*ck Love 3',
-            cover: 'src/assets/image/consume.jpg',
-            audio: 'src/assets/music/Consume riel.mp3'
+            cover: 'image/consume.jpg',
+            audio: 'music/Consume riel.mp3'
         },
         {
             id: 4,
             title: 'By your side',
             artist: 'Jonas blue',
             album: 'Dreamland',
-            cover: 'src/assets/image/byyourside.jpg',
-            audio: 'src/assets/music/Jonas blue.mp3'
+            cover: 'image/byyourside.jpg',
+            audio: 'music/Jonas blue.mp3'
         },
         {
             id: 5,
             title: 'Happier',
             artist: 'Marshmello ft. Bastille',
             album: 'Justice',
-            cover: 'src/assets/image/happier.jpg',
-            audio: 'src/assets/music/Marshmello ft Bastille Happier .mp3'
+            cover: 'image/happier.jpg',
+            audio: 'music/Marshmello ft Bastille Happier .mp3'
         },
         {
             id: 6,
             title: 'Paris',
             artist: 'The Chainsmokers',
             album: 'Montero',
-            cover: 'src/assets/image/Paris.jpg',
-            audio: 'src/assets/music/Paris.mp3'
+            cover: 'image/Paris.jpg',
+            audio: 'music/Paris.mp3'
         },
         {
             id: 7,
             title: 'Something just like this',
             artist: 'The Chainsmokers',
             album: 'Montero',
-            cover: 'src/assets/image/Something just like This.jpg',
-            audio: 'src/assets/music/something just like this.mp3'
+            cover: 'image/Something just like This.jpg',
+            audio: 'music/something just like this.mp3'
         },
         {
             id: 8,
             title: 'Takeaway',
             artist: 'The Chainsmokers',
             album: 'Montero',
-            cover: 'src/assets/image/Takeaway.jpg',
-            audio: 'src/assets/music/Takeaway.mp3'
+            cover: 'image/Takeaway.jpg',
+            audio: 'music/Takeaway.mp3'
         },
         {
             id: 9,
             title: 'Closer ft.halsey',
             artist: 'The Chainsmokers',
             album: 'Montero',
-            cover: 'src/assets/image/Closer.jpg',
-            audio: 'src/assets/music/The Chainsmokers - Closer Ft. Halsey (1).mp3'
+            cover: 'image/Closer.jpg',
+            audio: 'music/The Chainsmokers - Closer Ft. Halsey (1).mp3'
         },
     ];
 
