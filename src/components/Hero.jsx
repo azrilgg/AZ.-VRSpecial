@@ -90,7 +90,7 @@ const Hero = () => {
                         <div className="hero-card-frame"></div>
                         <div className="hero-card-inner">
                             <img
-                                src="src/assets//image/riel.jpeg"
+                                src="image/riel.jpeg"
                                 alt="Ahmad Azriel"
                                 className="hero-img"
                             />
