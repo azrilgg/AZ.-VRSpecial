@@ -63,7 +63,7 @@ const FavoriteMusic = () => {
             title: 'Something just like this',
             artist: 'The Chainsmokers',
             album: 'Montero',
-            cover: 'image/Something just like This.jpg',
+            cover: 'image/Something Just Like This.jpg',
             audio: 'music/something just like this.mp3'
         },
         {
