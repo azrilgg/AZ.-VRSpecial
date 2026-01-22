@@ -1,0 +1,317 @@
+/* ===== IDOL SECTION - SUPER GOD DESIGN REFINED ===== */
+.idol-section {
+    position: relative;
+    padding: 160px 0;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    perspective: 2000px;
+}
+
+/* Parallax Background */
+.idol-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.idol-bg-image {
+    position: absolute;
+    inset: -20%;
+    /* Larger for deeper parallax */
+    background-size: cover;
+    background-position: center 30%;
+    filter: grayscale(100%) contrast(1.1) brightness(0.4);
+    transform: translateZ(-500px) scale(2) translateY(calc(var(--scroll-progress) * 200px));
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+.idol-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, #0a0a0a 90%);
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.idol-particles {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.idol-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* Header */
+.idol-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.idol-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    margin: 24px 0;
+    letter-spacing: -0.03em;
+    text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.idol-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    position: relative;
+    padding: 0 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.idol-subtitle::before,
+.idol-subtitle::after {
+    content: '"';
+    font-family: serif;
+    font-size: 5rem;
+    color: var(--color-accent);
+    position: absolute;
+    opacity: 0.2;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.idol-subtitle::before {
+    top: -30px;
+    left: 0;
+}
+
+.idol-subtitle::after {
+    bottom: -50px;
+    right: 0;
+}
+
+/* Philosophy Grid */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    perspective: 2000px;
+    /* Super deep 3D space */
+}
+
+/* SUPER GOD CARD */
+.philosophy-card {
+    background: rgba(20, 20, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 40px;
+    position: relative;
+    /* Transformation handled by JS, but set initial state */
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+    /* Dynamic rotation */
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay);
+}
+
+.philosophy-card.active {
+    border-color: var(--color-accent);
+    box-shadow:
+        0 0 50px rgba(255, 77, 0, 0.2),
+        inset 0 0 30px rgba(255, 77, 0, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Dynamic Glare Effect */
+.card-glare {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%),
+            rgba(255, 255, 255, 0.15),
+            transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    border-radius: 30px;
+}
+
+.philosophy-card:hover .card-glare {
+    opacity: 1;
+}
+
+/* Border Glow */
+.card-border-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 31px;
+    background: linear-gradient(var(--rotate-y),
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.philosophy-card:hover .card-border-glow {
+    opacity: 1;
+}
+
+/* Content Depth */
+.card-content {
+    transform: translateZ(40px);
+    /* Lifts content off card */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    pointer-events: none;
+    /* Let clicks pass to card */
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-accent);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 15px 30px rgba(255, 77, 0, 0.3);
+    transform: translateZ(20px);
+    transition: transform 0.3s ease;
+}
+
+.philosophy-card:hover .icon-box {
+    transform: translateZ(50px) scale(1.1);
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Comparison Table */
+.comparison {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateZ(10px);
+}
+
+.comp-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.comp-row .label {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.comp-row .value {
+    color: white;
+    font-weight: 600;
+}
+
+.comp-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 12px 0;
+}
+
+.card-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    transform: translateZ(5px);
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+        perspective: none;
+        /* Simplify for tablets */
+    }
+
+    .philosophy-card {
+        transform: none !important;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .idol-section {
+        padding: 100px 0;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .idol-title {
+        font-size: 12vw;
+    }
+
+    .idol-subtitle {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .idol-subtitle::before,
+    .idol-subtitle::after {
+        display: none;
+    }
+
+    /* Disable heavy 3D on mobile for battery/perf */
+    .philosophy-card {
+        transform: none !important;
+    }
+
+    .card-content {
+        transform: none;
+    }
+}
