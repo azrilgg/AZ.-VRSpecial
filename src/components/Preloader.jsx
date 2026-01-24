@@ -67,7 +67,7 @@ const Preloader = ({ onComplete }) => {
                         <span className="name-part">Ahmad</span>
                         <span className="name-part accent">Azriel</span>
                     </h1>
-                    <p className="hero-role">UI/UX Designer & Developer</p>
+                    <p className="hero-role">Frontend Developer & Ai Engineer</p>
                 </div>
             </div>
 
